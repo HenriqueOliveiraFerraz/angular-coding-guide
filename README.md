@@ -12,6 +12,7 @@ Building robust, maintainable, and scalable Angular applications requires follow
 ### 2. Naming Conventions
 - Follow consistent naming strategies for files, components, and services.
 - Enhance clarity and uniformity across the codebase.
+- Angular eslint rules can be found here [rules](https://www.npmjs.com/package/@angular-eslint/eslint-plugin).
 
 ### 3. Coding Practices
 - Utilize Angular lifecycle hooks efficiently.
