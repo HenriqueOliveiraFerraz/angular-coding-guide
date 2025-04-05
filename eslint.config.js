@@ -7,10 +7,17 @@ const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommen
 module.exports = tseslint.config(
   {
     files: ['**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        project: ['tsconfig.json', 'projects/**/tsconfig.*.json'],
+        tsconfigRootDir: './',
+        sourceType: 'module',
+      },
+    },
     extends: [
       eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.stylistic,
+      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
       ...angular.configs.tsRecommended,
       eslintPluginPrettierRecommended,
     ],
