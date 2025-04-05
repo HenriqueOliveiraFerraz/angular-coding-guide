@@ -1,11 +1,16 @@
 // @ts-check
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
-const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
-const unusedImports = require('eslint-plugin-unused-imports');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import eslintJs from '@eslint/js';
+import tsEslint from 'typescript-eslint';
+import angularEslint from 'angular-eslint';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import unusedImports from 'eslint-plugin-unused-imports';
 
-module.exports = tseslint.config(
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default tsEslint.config(
   {
     files: ['**/*.ts'],
     languageOptions: {
@@ -19,13 +24,13 @@ module.exports = tseslint.config(
       'unused-imports': unusedImports,
     },
     extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
-      ...tseslint.configs.stylisticTypeChecked,
-      ...angular.configs.tsRecommended,
+      eslintJs.configs.recommended,
+      ...tsEslint.configs.recommendedTypeChecked,
+      ...tsEslint.configs.stylisticTypeChecked,
+      ...angularEslint.configs.tsRecommended,
       eslintPluginPrettierRecommended,
     ],
-    processor: angular.processInlineTemplates,
+    processor: angularEslint.processInlineTemplates,
     rules: {
       'unused-imports/no-unused-imports': 'error',
       '@angular-eslint/directive-selector': [
@@ -70,8 +75,8 @@ module.exports = tseslint.config(
   {
     files: ['**/*.html'],
     extends: [
-      ...angular.configs.templateRecommended,
-      ...angular.configs.templateAccessibility,
+      ...angularEslint.configs.templateRecommended,
+      ...angularEslint.configs.templateAccessibility,
       eslintPluginPrettierRecommended,
     ],
     rules: {},
