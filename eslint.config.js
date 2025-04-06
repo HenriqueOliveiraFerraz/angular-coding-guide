@@ -20,6 +20,7 @@ export default tsEslint.config(
         sourceType: 'module',
       },
     },
+    ignores: ['dist/**'],
     plugins: {
       'unused-imports': unusedImports,
     },
