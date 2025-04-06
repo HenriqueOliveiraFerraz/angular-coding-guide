@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TaskManagementApiService } from '@task-management-api';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,13 @@ export class AppComponent implements OnInit {
   api = inject(TaskManagementApiService);
 
   ngOnInit(): void {
-    console.log('api', this.api);
+    this.api
+      .getTasks()
+      .pipe(take(1))
+      .subscribe({
+        next: (value) => {
+          console.log('value', value);
+        },
+      });
   }
 }
