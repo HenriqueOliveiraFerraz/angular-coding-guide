@@ -1,3 +1,3 @@
 # .husky/pre-commit
 
-npm run precommit
+npx lint-staged --config lint-staged.config.mjs

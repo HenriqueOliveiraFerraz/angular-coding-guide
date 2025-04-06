@@ -12,10 +12,12 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint --cache",
+    "lint:fix": "ng lint --fix --cache",
     "prepare": "husky",
     "prettier:write": "prettier . --write --ignore-unknown --cache",
     "prettier:check": "prettier . --check --ignore-unknown --cache",
-    "precommit": "npm run lint && npm run prettier:write"
+    "eslint:task-management-app:fix": "eslint projects/task-management-app -c projects/task-management-app/eslint.config.js --fix",
+    "eslint:task-management-api:fix": "eslint projects/task-management-api -c projects/task-management-api/eslint.config.js --fix"
   },
   "private": true,
   "dependencies": {
@@ -50,6 +52,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.5.0",
     "ng-packagr": "^19.2.0",
     "prettier": "3.5.3",
     "typescript": "~5.7.2",
