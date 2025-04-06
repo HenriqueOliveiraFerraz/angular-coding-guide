@@ -11,8 +11,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint",
-    "prepare": "husky"
+    "lint": "ng lint --cache",
+    "prepare": "husky",
+    "prettier:write": "prettier . --write --ignore-unknown --cache",
+    "prettier:check": "prettier . --check --ignore-unknown --cache",
+    "precommit": "npm run lint && npm run prettier:write"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +34,7 @@
     "@angular-devkit/build-angular": "^19.2.5",
     "@angular/cli": "^19.2.5",
     "@angular/compiler-cli": "^19.2.0",
+    "@eslint/config-inspector": "^1.0.2",
     "@playwright/test": "^1.51.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^22.14.0",
@@ -47,6 +51,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^15.5.0",
+    "ng-packagr": "^19.2.0",
     "prettier": "3.5.3",
     "typescript": "~5.7.2",
     "typescript-eslint": "8.27.0"

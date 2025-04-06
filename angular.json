@@ -107,6 +107,49 @@
           }
         }
       }
+    },
+    "task-management-api": {
+      "projectType": "library",
+      "root": "projects/task-management-api",
+      "sourceRoot": "projects/task-management-api/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/task-management-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/task-management-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/task-management-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/task-management-api/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/task-management-api/**/*.ts",
+              "projects/task-management-api/**/*.html"
+            ],
+            "eslintConfig": "projects/task-management-api/eslint.config.js"
+          }
+        }
+      }
     }
   },
   "cli": {

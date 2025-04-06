@@ -1,3 +1,7 @@
 {
-  "*.{js,ts,html}": ["eslint --fix", "prettier --write"]
+  "*.{js,ts,html}": [
+    "eslint projects/task-management-api --fix -c projects/task-management-api/eslint.config.js",
+    "eslint projects/task-management-app --fix -c projects/task-management-app/eslint.config.js",
+    "prettier --write"
+  ]
 }
