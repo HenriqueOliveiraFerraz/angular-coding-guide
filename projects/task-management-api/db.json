@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Bob Smith",
+      "email": "bob@example.com",
+      "role": "manager"
+    },
+    {
+      "id": 3,
+      "name": "Charlie Davis",
+      "email": "charlie@example.com",
+      "role": "employee"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Design login page",
+      "description": "Create the UI for the login page and connect to API",
+      "status": "todo",
+      "priority": "high",
+      "createdAt": "2025-03-28T10:00:00.000Z",
+      "dueDate": "2025-03-30T17:00:00.000Z",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Set up CI pipeline",
+      "description": "Use GitHub Actions to run tests on each commit",
+      "status": "in-progress",
+      "priority": "medium",
+      "createdAt": "2025-03-25T12:00:00.000Z",
+      "dueDate": "2025-04-01T12:00:00.000Z",
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "title": "Write unit tests for TaskService",
+      "description": "Test all methods in the service using Jasmine",
+      "status": "done",
+      "priority": "low",
+      "createdAt": "2025-03-20T09:00:00.000Z",
+      "dueDate": "2025-03-27T09:00:00.000Z",
+      "userId": 3
+    },
+    {
+      "id": 4,
+      "title": "Fix task filtering bug",
+      "description": "Fix the bug in task list filter logic on status",
+      "status": "in-progress",
+      "priority": "high",
+      "createdAt": "2025-03-26T08:30:00.000Z",
+      "dueDate": "2025-03-29T17:00:00.000Z",
+      "userId": 1
+    }
+  ]
+}
