@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TaskManagementApiService } from '@task-management-api';
 
@@ -8,13 +8,7 @@ import { TaskManagementApiService } from '@task-management-api';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'task-management-app';
-  api = inject(TaskManagementApiService);
-
-  ngOnInit(): void {
-    this.api.getAll().subscribe({
-      next: (value) => console.log(value),
-    });
-  }
+  taskManagementApiService = inject(TaskManagementApiService);
 }

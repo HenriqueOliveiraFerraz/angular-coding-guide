@@ -22,6 +22,9 @@
     "paths": {
       "@task-management-api": [
         "projects/task-management-api/src/public-api.ts"
+      ],
+      "@task-management-app/*": [
+        "projects/task-management-app/src/app/*"
       ]
     }
   },

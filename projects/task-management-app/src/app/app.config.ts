@@ -3,8 +3,8 @@ import { provideRouter } from '@angular/router';
 
 import { provideHttpClient } from '@angular/common/http';
 import { TASK_MANAGEMENT_API_CONFIG } from '@task-management-api';
+import { EnvironmentService } from '@task-management-app/core/environment/environment.service';
 import { routes } from './app.routes';
-import { EnvironmentService } from './core/environment/environment.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
