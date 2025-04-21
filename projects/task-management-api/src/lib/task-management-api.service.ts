@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Task, TaskManagementApiConfig } from './task-management-api.types';
+import { Task, TaskManagementApiConfig, User } from './task-management-api.types';
 
 export const TASK_MANAGEMENT_API_CONFIG = new InjectionToken<TaskManagementApiConfig>('TASK_MANAGEMENT_API_CONFIG');
 
@@ -11,41 +11,44 @@ export const TASK_MANAGEMENT_API_CONFIG = new InjectionToken<TaskManagementApiCo
 export class TaskManagementApiService {
   private readonly baseUrl: string;
   private readonly usersEndpoint: string;
+  private readonly tasksEndpoint: string;
 
   constructor(
     @Inject(TASK_MANAGEMENT_API_CONFIG) private config: TaskManagementApiConfig,
     private http: HttpClient,
   ) {
     this.baseUrl = this.config.baseUrl;
+    this.tasksEndpoint = `${this.baseUrl}/tasks`;
     this.usersEndpoint = `${this.baseUrl}/users`;
   }
 
-  getAll(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.usersEndpoint);
+  getTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.tasksEndpoint);
   }
 
-  getByUser(userId: number): Observable<Task[]> {
+  getTaskByUserId(userId: number): Observable<Task[]> {
     const params = new HttpParams().set('userId', userId.toString());
-    return this.http.get<Task[]>(this.baseUrl, { params });
+    return this.http.get<Task[]>(this.tasksEndpoint, { params });
   }
 
-  getById(id: number): Observable<Task> {
-    return this.http.get<Task>(`${this.baseUrl}/${id}`);
+  getTaskById(id: number): Observable<Task> {
+    return this.http.get<Task>(`${this.tasksEndpoint}/${id}`);
   }
 
-  create(task: Omit<Task, 'id'>): Observable<Task> {
-    return this.http.post<Task>(this.baseUrl, task);
+  createTask(task: Omit<Task, 'id'>): Observable<Task> {
+    return this.http.post<Task>(this.tasksEndpoint, task);
   }
 
-  update(task: Task): Observable<Task> {
-    return this.http.put<Task>(`${this.baseUrl}/${task.id}`, task);
+  updateTask(task: Task): Observable<Task> {
+    return this.http.put<Task>(`${this.tasksEndpoint}/${task.id}`, task);
   }
 
-  delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  deleteTask(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.tasksEndpoint}/${id}`);
   }
 
-  getWithUser(): Observable<unknown[]> {
-    return this.http.get<unknown[]>(`${this.baseUrl}?_expand=user`);
+  getTasksWithUser(): Observable<(Task & { user: User })[]> {
+    const params = new HttpParams().set('_expand', 'user');
+    return this.http.get<(Task & { user: User })[]>(`${this.tasksEndpoint}`, { params });
   }
 }
