@@ -17,3 +17,7 @@ export interface User {
   email: string;
   role: string;
 }
+
+export interface TaskManagementApiConfig {
+  baseUrl: string;
+}

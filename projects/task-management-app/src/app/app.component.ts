@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   api = inject(TaskManagementApiService);
 
   ngOnInit(): void {
-    this.api.getAll();
+    this.api.getAll().subscribe({
+      next: (value) => console.log(value),
+    });
   }
 }

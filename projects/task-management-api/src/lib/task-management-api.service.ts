@@ -1,18 +1,27 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Task } from './task-management-api.types';
+import { Task, TaskManagementApiConfig } from './task-management-api.types';
+
+export const TASK_MANAGEMENT_API_CONFIG = new InjectionToken<TaskManagementApiConfig>('TASK_MANAGEMENT_API_CONFIG');
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskManagementApiService {
-  private readonly baseUrl = 'http://localhost:3000/tasks';
+  private readonly baseUrl: string;
+  private readonly usersEndpoint: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    @Inject(TASK_MANAGEMENT_API_CONFIG) private config: TaskManagementApiConfig,
+    private http: HttpClient,
+  ) {
+    this.baseUrl = this.config.baseUrl;
+    this.usersEndpoint = `${this.baseUrl}/users`;
+  }
 
   getAll(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.baseUrl);
+    return this.http.get<Task[]>(this.usersEndpoint);
   }
 
   getByUser(userId: number): Observable<Task[]> {

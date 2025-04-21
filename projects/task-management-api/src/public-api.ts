@@ -3,4 +3,3 @@
  */
 
 export * from './lib/task-management-api.service';
-export * from './lib/task-management-api.component';
