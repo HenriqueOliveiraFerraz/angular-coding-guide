@@ -20,7 +20,7 @@
     "prettier:check": "prettier . --check --ignore-unknown --cache",
     "eslint:task-management-app:fix": "eslint projects/task-management-app -c projects/task-management-app/eslint.config.js --fix",
     "eslint:task-management-api:fix": "eslint projects/task-management-api -c projects/task-management-api/eslint.config.js --fix",
-    "task-management-api:server": "json-server projects/task-management-api/db.json --routes projects/task-management-api/routes.json --watch --port 3000"
+    "task-management-api:server": "json-server --watch --port 3000 --routes projects/task-management-api/routes.json projects/task-management-api/db.json"
   },
   "private": true,
   "dependencies": {
