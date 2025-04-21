@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "angular-coding-guide",
   "version": "0.0.0",
   "engines": {
     "node": "^22.0.0"
@@ -9,7 +9,8 @@
     "ng": "ng",
     "start": "ng serve",
     "start:task-management-app": "ng serve task-management-app -c development",
-    "build": "ng build",
+    "build:task-management-app:dev": "ng build task-management-app -c development",
+    "build:task-management-api:dev": "ng build task-management-api -c development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint --cache",
@@ -18,7 +19,8 @@
     "prettier:write": "prettier . --write --ignore-unknown --cache",
     "prettier:check": "prettier . --check --ignore-unknown --cache",
     "eslint:task-management-app:fix": "eslint projects/task-management-app -c projects/task-management-app/eslint.config.js --fix",
-    "eslint:task-management-api:fix": "eslint projects/task-management-api -c projects/task-management-api/eslint.config.js --fix"
+    "eslint:task-management-api:fix": "eslint projects/task-management-api -c projects/task-management-api/eslint.config.js --fix",
+    "task-management-api:server": "json-server projects/task-management-api/db.json --routes projects/task-management-api/routes.json --watch --port 3000"
   },
   "private": true,
   "dependencies": {
@@ -48,6 +50,7 @@
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
     "jasmine-core": "~5.6.0",
+    "json-server": "^0.17.4",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
