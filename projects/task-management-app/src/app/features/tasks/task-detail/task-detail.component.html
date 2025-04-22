@@ -1,4 +1,4 @@
-@let task = taskSignal();
+@let task = taskObs | async;
 
 <button type="button" routerLink="/tasks">Go back to the tasks route</button>
 
@@ -11,3 +11,10 @@
     <span>Priority: {{ task.priority }}</span>
   </div>
 }
+<a [routerLink]="['/tasks', 1]" class="task-link" aria-label="View task details">task one</a>
+----
+<a [routerLink]="['/tasks', 2]" class="task-link" aria-label="View task details">task two</a>
+----
+<a [routerLink]="['/tasks', 3]" class="task-link" aria-label="View task details">task three</a>
+----
+<a [routerLink]="['/tasks', 4]" class="task-link" aria-label="View task details">task four</a>
