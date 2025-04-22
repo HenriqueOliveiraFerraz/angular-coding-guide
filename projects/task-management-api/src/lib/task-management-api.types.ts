@@ -4,11 +4,23 @@ export interface Task {
   id: number;
   title: string;
   description: string;
-  status: 'todo' | 'in-progress' | 'done';
-  priority: 'low' | 'medium' | 'high';
+  status: TaskStatus;
+  priority: TaskPriority;
   createdAt: DateTime;
   dueDate: DateTime;
   userId: number;
+}
+
+export enum TaskStatus {
+  Todo = 'todo',
+  InProgress = 'in-progress',
+  Done = 'done',
+}
+
+export enum TaskPriority {
+  Low = 'low',
+  Medium = 'medium',
+  High = 'High',
 }
 
 export interface User {
