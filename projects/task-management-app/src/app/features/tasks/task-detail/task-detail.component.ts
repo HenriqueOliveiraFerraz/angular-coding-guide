@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Task, TaskManagementApiService } from '@task-management-api';
+import { TaskManagementApiService } from '@task-management-api';
 import { of, switchMap } from 'rxjs';
 
 @Component({
@@ -13,8 +13,7 @@ import { of, switchMap } from 'rxjs';
 export class TaskDetailComponent {
   private route = inject(ActivatedRoute);
   readonly taskService = inject(TaskManagementApiService);
-  readonly id = input.required<number>();
-  readonly taskSignal = signal<Task | null>(null);
+
   taskObs = this.route.paramMap.pipe(
     switchMap((params) => {
       const id = params.get('id');
