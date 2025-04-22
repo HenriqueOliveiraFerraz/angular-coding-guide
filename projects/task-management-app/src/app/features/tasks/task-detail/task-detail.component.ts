@@ -1,5 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TaskManagementApiService } from '@task-management-api';
 import { of, switchMap } from 'rxjs';
@@ -19,5 +20,6 @@ export class TaskDetailComponent {
       const id = params.get('id');
       return id ? this.taskService.getTaskById(parseInt(id)) : of(null);
     }),
+    takeUntilDestroyed(),
   );
 }
