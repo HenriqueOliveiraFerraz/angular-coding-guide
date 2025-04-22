@@ -1,0 +1,115 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "task-management-app",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "projects/task-management-app/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@ngx-env/builder:application",
+      "options": {
+        "outputPath": "dist/task-management-app",
+        "index": "projects/task-management-app/src/index.html",
+        "browser": "projects/task-management-app/src/main.ts",
+        "polyfills": [
+          "zone.js"
+        ],
+        "tsConfig": "projects/task-management-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "projects/task-management-app/public"
+          }
+        ],
+        "styles": [
+          "projects/task-management-app/src/styles.scss"
+        ],
+        "scripts": [],
+        "ngxEnv": {
+          "prefix": "(NG_APP|TASK_MANAGEMENT_API)_"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kB",
+              "maximumError": "8kB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@ngx-env/builder:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "task-management-app:build:production"
+        },
+        "development": {
+          "buildTarget": "task-management-app:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {}
+    },
+    "extract-i18n": {
+      "executor": "@ngx-env/builder:extract-i18n",
+      "options": {}
+    },
+    "test": {
+      "executor": "@ngx-env/builder:karma",
+      "options": {
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ],
+        "tsConfig": "projects/task-management-app/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "projects/task-management-app/public"
+          }
+        ],
+        "styles": [
+          "projects/task-management-app/src/styles.scss"
+        ],
+        "scripts": [],
+        "builderMode": "browser"
+      }
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": [
+          "projects/task-management-app/**/*.ts",
+          "projects/task-management-app/**/*.html"
+        ],
+        "eslintConfig": "projects/task-management-app/eslint.config.js"
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    }
+  }
+}
