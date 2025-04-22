@@ -4,7 +4,8 @@
   "projectType": "application",
   "generators": {
     "@schematics/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "standalone": true
     }
   },
   "sourceRoot": "projects/task-management-app/src",

@@ -2,16 +2,24 @@
 build
 coverage
 /dist/*
+/.nx/cache
+/.nx/workspace-data
+.angular
 
 # Ignore all markdown files:
+*.md
 **/*.md
 
 # Ignore all JSON files:
+*.json
 **/*.json
 
 # Ignore all YAML files:
+*.yaml
+*.yml
 **/*.yaml
 **/*.yml
 
 # Ignore .d.ts
+*.d.ts
 **/*.d.ts
