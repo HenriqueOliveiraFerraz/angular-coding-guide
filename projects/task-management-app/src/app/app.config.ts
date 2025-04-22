@@ -4,7 +4,7 @@ import {
   makeEnvironmentProviders,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
+import { provideRouter } from '@angular/router';
 
 import { provideHttpClient } from '@angular/common/http';
 import { TASK_MANAGEMENT_API_CONFIG } from '@task-management-api';
@@ -14,7 +14,7 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideRouter(routes),
     provideHttpClient(),
     provideTaskManagementApiConfig(),
   ],
