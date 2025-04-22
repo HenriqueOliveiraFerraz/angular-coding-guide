@@ -19,8 +19,10 @@
 
   <ul>
     @for (task of filteredTasksObs | async; track task.id) {
-      <li>
-        <h3>{{ task.title }}</h3>
+      <li class="task-item">
+        <a [routerLink]="['/tasks', task.id]" class="task-link" aria-label="View task details">
+          <h3>{{ task.title }}</h3>
+        </a>
         <p>{{ task.description }}</p>
         <span>Status: {{ task.status }}</span>
         |
