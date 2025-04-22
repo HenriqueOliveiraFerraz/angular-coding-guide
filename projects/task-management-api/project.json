@@ -1,0 +1,52 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "task-management-api",
+  "projectType": "library",
+  "sourceRoot": "projects/task-management-api/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "projects/task-management-api/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/task-management-api/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/task-management-api/tsconfig.lib.json",
+          "watch": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{workspaceRoot}/dist/task-management-api"
+      ]
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "projects/task-management-api/tsconfig.spec.json",
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ],
+        "watch": true
+      }
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": [
+          "projects/task-management-api/**/*.ts",
+          "projects/task-management-api/**/*.html"
+        ],
+        "eslintConfig": "projects/task-management-api/eslint.config.js"
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    }
+  }
+}
