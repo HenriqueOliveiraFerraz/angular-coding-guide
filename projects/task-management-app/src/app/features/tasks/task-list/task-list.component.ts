@@ -21,7 +21,7 @@ export class TaskListComponent {
     status: this.formBuilder.nonNullable.control<TaskStatus | 'all'>('all'),
     priority: this.formBuilder.nonNullable.control<TaskPriority | 'all'>('all'),
   });
-  tasksObs = combineLatest([
+  filteredTasksObs = combineLatest([
     this.taskService.getTasks().pipe(startWith([])),
     this.searchTaskForm.valueChanges.pipe(startWith(this.searchTaskForm.getRawValue())),
   ]).pipe(

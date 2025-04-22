@@ -18,7 +18,7 @@
   </form>
 
   <ul>
-    @for (task of tasksObs | async; track task.id) {
+    @for (task of filteredTasksObs | async; track task.id) {
       <li>
         <h3>{{ task.title }}</h3>
         <p>{{ task.description }}</p>
