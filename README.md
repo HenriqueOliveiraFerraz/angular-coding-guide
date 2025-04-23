@@ -31,10 +31,6 @@ Building robust, maintainable, and scalable Angular applications requires follow
 - Optimize application performance with lazy loading.
 - Reduce change detection cycles for better efficiency.
 
-### 7. Testing
-- Follow best practices for unit and integration testing.
-- Utilize tools like Jasmine and Karma for test automation.
-
 ## References
 - [Angular Style Guide](https://angular.dev/style-guide)
 - Official Angular Documentation: [https://angular.dev](https://angular.dev)
