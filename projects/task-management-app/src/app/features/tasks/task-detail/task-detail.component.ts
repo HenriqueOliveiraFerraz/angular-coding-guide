@@ -12,7 +12,7 @@ import { of, switchMap } from 'rxjs';
   styleUrl: './task-detail.component.scss',
 })
 export class TaskDetailComponent {
-  private route = inject(ActivatedRoute);
+  readonly route = inject(ActivatedRoute);
   readonly taskService = inject(TaskManagementApiService);
 
   taskObs = this.route.paramMap.pipe(
