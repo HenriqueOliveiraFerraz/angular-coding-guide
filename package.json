@@ -46,7 +46,6 @@
     "@eslint/config-inspector": "^1.0.2",
     "@nx/angular": "20.8.0",
     "@nx/workspace": "20.8.0",
-    "@playwright/test": "^1.51.1",
     "@schematics/angular": "^19.2.5",
     "@types/jasmine": "~5.1.0",
     "@types/luxon": "^3.6.2",
