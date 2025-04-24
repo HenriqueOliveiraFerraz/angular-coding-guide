@@ -4,6 +4,7 @@
   "htmlWhitespaceSensitivity": "ignore",
   "tabWidth": 2,
   "printWidth": 120,
+  "endOfLine": "lf",
   "overrides": [
     {
       "files": "*.html",
